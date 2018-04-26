@@ -1,6 +1,7 @@
 #coding=utf-8
 import time
 from base_page import BasePage
+from invest_zf import InvestzfPage
 
 class LoginPage(BasePage):
 	url = "user/login"
@@ -15,7 +16,7 @@ class LoginPage(BasePage):
 
 	@property 
 	def button_text(self):
-		return self.by_css(".ft14 login_reinput_bu cfff w332 dis_b")
+		return self.by_css(".login_retext>button")
 
 	def login(self, username, password):
 		self.open()
@@ -23,5 +24,5 @@ class LoginPage(BasePage):
 		self.password_text.send_keys(password)
 		time.sleep(5)
 		self.button_text.click()
-		return AccountPage(self.driver) #这里为什么传driver
+		return InvestzfPage(self.driver) #这里为什么传driver
 		
